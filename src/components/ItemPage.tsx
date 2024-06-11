@@ -1,9 +1,15 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Payments from "./Payments";
+import Cookies from "js-cookie";
 
-export default function ItemPage() {
+interface ItemPageProps {
+  setBasket: any;
+  basket: string;
+}
+
+const ItemPage: React.FC<ItemPageProps> = ({ setBasket, basket }) => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [amount, setAmount] = useState(1);
@@ -40,6 +46,25 @@ export default function ItemPage() {
     }
     setAmount((currentAmount) => {
       return currentAmount - 1;
+    });
+  };
+
+  const handleAddToBasket = (e: any) => {
+    const id = e.target.id;
+
+    setBasket((currentBasket: string) => {
+      if (currentBasket.includes(id)) {
+        alert("item already in basket. you can set the amount in your basket");
+
+        return currentBasket;
+      } else {
+        const newBasket =
+          currentBasket.length > 0 ? currentBasket + "," + id : id;
+
+        Cookies.set("basket", newBasket, { expires: 7 });
+
+        return newBasket;
+      }
     });
   };
 
@@ -186,19 +211,46 @@ export default function ItemPage() {
             </h3>
           </div>
         </div>
-        <div id="stripe">
-          <h1
+        <div
+          style={{
+            width: "fit-content",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <div id="stripe">
+            <h1
+              style={{
+                textAlign: "center",
+                backgroundColor: "gray",
+                borderRadius: "3%",
+              }}
+            >
+              ${item.price ? amount * item.price : "$0"}
+            </h1>
+            <Payments />
+          </div>
+          <h5 style={{ textAlign: "center" }}>OR</h5>
+          <button
+            onClick={handleAddToBasket}
+            id={id}
             style={{
-              textAlign: "center",
-              backgroundColor: "gray",
-              borderRadius: "3%",
+              margin: "auto",
+              backgroundColor: "lightpink",
+              fontWeight: "bold",
+              height: "40px",
+              borderRadius: "7%",
+              borderStyle: "none",
+              cursor: "pointer",
+              marginBottom: "30px",
             }}
           >
-            ${item.price ? amount * item.price : "$0"}
-          </h1>
-          <Payments />
+            Add to basket and pay later
+          </button>
         </div>
       </div>
     </>
   );
-}
+};
+
+export default ItemPage;

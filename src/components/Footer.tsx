@@ -35,7 +35,7 @@ export default function Footer() {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
-          backgroundColor: "crimson",
+          backgroundColor: "palevioletred",
           padding: "10px",
           borderRadius: "10%",
           cursor: "pointer",
