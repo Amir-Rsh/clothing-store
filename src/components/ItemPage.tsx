@@ -6,10 +6,9 @@ import Cookies from "js-cookie";
 
 interface ItemPageProps {
   setBasket: any;
-  basket: string;
 }
 
-const ItemPage: React.FC<ItemPageProps> = ({ setBasket, basket }) => {
+const ItemPage: React.FC<ItemPageProps> = ({ setBasket }) => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [amount, setAmount] = useState(1);

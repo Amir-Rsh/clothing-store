@@ -34,10 +34,7 @@ const App = () => {
             </>
           }
         />
-        <Route
-          path="/:id"
-          element={<ItemPage basket={basket} setBasket={setBasket} />}
-        />
+        <Route path="/:id" element={<ItemPage setBasket={setBasket} />} />
         <Route
           path="/basket"
           element={<Basket basket={basket} setBasket={setBasket} />}
