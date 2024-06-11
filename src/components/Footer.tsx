@@ -9,9 +9,24 @@ export default function Footer() {
     <footer>
       <div className="footerColumn">
         <h2>Contact</h2>
-        <h3 className="footerButtons">Address</h3>
-        <h3 className="footerButtons">email</h3>
-        <h3 className="footerButtons">Number</h3>
+        <h3 className="footerButtons">
+          Address{" "}
+          <span style={{ marginLeft: "20px", fontWeight: "normal" }}>
+            clothing store project avenue
+          </span>
+        </h3>
+        <h3 className="footerButtons">
+          email{" "}
+          <span style={{ marginLeft: "20px", fontWeight: "normal" }}>
+            clothing@project.test
+          </span>
+        </h3>
+        <h3 className="footerButtons">
+          Number{" "}
+          <span style={{ marginLeft: "20px", fontWeight: "normal" }}>
+            0123456789
+          </span>
+        </h3>
       </div>
       <div
         id="back-top"

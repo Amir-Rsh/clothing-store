@@ -70,7 +70,6 @@ const Basket: React.FC<BasketProps> = ({ basket }) => {
 
   return items.length < 1 ? (
     <>
-      {" "}
       <h1 style={{ textAlign: "center", marginTop: "130px" }}>Your Basket</h1>
       <div
         style={{
@@ -282,6 +281,7 @@ const Basket: React.FC<BasketProps> = ({ basket }) => {
           );
         })}
         <div
+          id="stripe2"
           style={{
             marginRight: "40px",
             marginTop: "30px",

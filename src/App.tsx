@@ -39,7 +39,10 @@ const App = () => {
           path="/basket"
           element={<Basket basket={basket} setBasket={setBasket} />}
         />
-        <Route path={"/completion"} element={<Completion />} />
+        <Route
+          path={"/completion"}
+          element={<Completion setBasket={setBasket} />}
+        />
       </Routes>
       <Footer />
     </>

@@ -89,7 +89,6 @@ const Items: React.FC<ItemsProps> = ({ basket, setBasket }) => {
           style={{
             width: "200px",
             height: "30px",
-            marginRight: "20px",
             backgroundColor: "palevioletred",
             textAlign: "center",
             fontWeight: "bold",
@@ -105,6 +104,7 @@ const Items: React.FC<ItemsProps> = ({ basket, setBasket }) => {
           <option value="winter">Winter</option>
           <option value="formal">Formal</option>
         </select>
+        <br />
         <select
           onChange={handleCategoryChange}
           style={{
