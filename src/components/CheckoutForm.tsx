@@ -14,6 +14,8 @@ export default function CheckoutForm() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [message, setMessage] = useState<string | undefined>(undefined);
 
+  message;
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
