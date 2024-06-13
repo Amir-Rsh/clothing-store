@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % homeImages.length);
-    }, 3000);
+    }, 1200);
 
     return () => clearInterval(interval);
   }, [homeImages.length]);
