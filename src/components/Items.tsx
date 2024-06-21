@@ -20,6 +20,13 @@ const Items: React.FC<ItemsProps> = ({ basket, setBasket }) => {
   ]);
   const [loading, setloading] = useState(true);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const handleSetCookie = (event: any) => {
     const item_id = event.currentTarget.id;
 
@@ -174,6 +181,7 @@ const Items: React.FC<ItemsProps> = ({ basket, setBasket }) => {
                 <p>Price: {item.price}</p>
                 <div>
                   <Link
+                    onClick={scrollToTop}
                     to={`/${item._id}`}
                     style={{ textDecoration: "none", color: "black" }}
                   >

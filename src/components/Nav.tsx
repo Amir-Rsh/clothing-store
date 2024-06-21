@@ -14,6 +14,13 @@ const Nav: React.FC<NavProps> = ({ basket, setBasket }) => {
     setBasket("");
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const scrollToItems = () => {
     const itemsElement = document.getElementById("items-header");
     if (itemsElement) {
@@ -36,7 +43,11 @@ const Nav: React.FC<NavProps> = ({ basket, setBasket }) => {
   return (
     <nav>
       <div id="navigation">
-        <Link style={{ textDecoration: "none", color: "black" }} to="/">
+        <Link
+          onClick={scrollToTop}
+          style={{ textDecoration: "none", color: "black" }}
+          to="/"
+        >
           <h2 className="navButton">Home</h2>
         </Link>
 
@@ -70,7 +81,11 @@ const Nav: React.FC<NavProps> = ({ basket, setBasket }) => {
             {basket.length > 0 ? basket.split(",").length : 0}
           </h3>
           <h2>
-            <Link to={"/basket"} style={{ color: "black" }}>
+            <Link
+              onClick={scrollToTop}
+              to={"/basket"}
+              style={{ color: "black" }}
+            >
               <i id="basketIcon" className="fas fa-shopping-basket"></i>
             </Link>
           </h2>
@@ -81,6 +96,7 @@ const Nav: React.FC<NavProps> = ({ basket, setBasket }) => {
             margin: "10px",
             borderStyle: "none",
             fontWeight: "bold",
+            borderRadius: "10%",
           }}
           onClick={handleDeleteCookie}
         >
