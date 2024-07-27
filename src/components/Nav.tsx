@@ -1,5 +1,6 @@
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
+import logoImage from "../assets/Screenshot-from-2024-04-26-16-32-53.png";
 
 interface NavProps {
   basket: any;
@@ -58,11 +59,7 @@ const Nav: React.FC<NavProps> = ({ basket, setBasket }) => {
           Contact
         </h2>
       </div>
-      <img
-        id="name"
-        src="https://i.ibb.co/sPrYFh9/Screenshot-from-2024-04-26-16-32-53.png"
-        alt=""
-      />
+      <img id="name" src={logoImage} alt="" />
       <div id="navigation2">
         <div>
           <h3
